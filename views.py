@@ -4,7 +4,6 @@ import openai
 import random
 import time
 import os
-import re
 
 views = Blueprint(__name__,'views')
 
