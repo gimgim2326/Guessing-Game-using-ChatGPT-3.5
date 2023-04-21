@@ -5,11 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guessing Game</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <style>
+        body {
+            background-color: #F7B2A9;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1 {
+            color: #4B0082;
+            font-size: 36px;
+            margin-top: 50px;
+        }
+
+        button {
+            background-color: #4B0082;
+            color: #FFFFFF;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 24px;
+            margin-top: 30px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        button:hover {
+            background-color: #FFFFFF;
+            color: #4B0082;
+            transition: 0.5s;
+        }
+    </style>
 </head>
 <body>
     {% block content %}
     <h1>Guessing Game</h1>
     <button onclick="location.href='/category'" type="button">Enter Game</button>
+    <br><br>
+    <h3>Mechanics</h3>
+    <p>
+        Your objective is to guess the word by entering the correct answer in the text box.<br>
+        The category will be randomly selected each time you enter the game.<br>
+        You'll have 10 rounds to guess the word, and a new clue will be provided each round.<br>
+        If you run out of guesses, don't worry - you'll be given the option to play again and improve your score. <br>
+    </p>
+    <br>
+    <h3>Notice</h3>
+    <p> Just a heads up - we're using a free version of ChatGPT at the moment,<br>
+        which means there might be a short 60-second wait time each time you access the game.<br>
+        Don't worry though, we're working hard to make sure you have the best experience possible!<br><br>
+        Thanks for your patience and understanding. Break a leg!</p>
     {% endblock %}
 </body>
 </html>

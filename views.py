@@ -13,7 +13,7 @@ api_key = os.getenv('api_key')
 def delete_sessions():
     for key in list(session.keys()):
         del session[key]
-        
+
 @views.route('/category')
 def get_category():
     if 'playing' in session:
@@ -37,7 +37,7 @@ def get_category():
         clue_list = clue.splitlines()
 
         #return game_data
-        session['game_category'], session['game_clues'], session['game_answer'] = category, clue_list, word
+        session['game_category'], session['game_clues'], session['game_answer'] = category.upper(), clue_list, word
         session['sequence'] = 0
         session['generated'] = "True"
         return redirect(url_for('views.play_game'))
