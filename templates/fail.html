@@ -1,0 +1,6 @@
+{% extends "index.html" %} {% block content %}
+<h1>Guessing Game</h1>
+<p>Category: {{ category }}</p>
+<p>You've run out of guesses. The word was: {{ word }}. Do you want to play again?</p>
+<button onclick="location.href='/category'" type="button">Play</button>
+{% endblock %}
