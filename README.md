@@ -12,4 +12,17 @@ sudo apt-get install gunicorn3
 
 git clone https://github.com/gimgim2326/a5-group3-game.git
 cd a5-group3-game
- 
+
+sudo nano /etc/nginx/sites-available/a5-group3-game
+server {
+        listen 80;
+        server_name 18.207.88.68;
+
+        location / {
+                proxy_pass http://127.0.0.1:8000;
+        }
+}
+
+sudo service nginx restart
+
+gunicorn3 app:app
