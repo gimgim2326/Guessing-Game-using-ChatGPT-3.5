@@ -16,9 +16,14 @@ Before you start, make sure you have the following installed on your system:
 To install the necessary dependencies, run the following commands in your terminal:
 
 ```
-sudo apt-get update && \
-sudo apt-get install -y python3 python3-pip nginx gunicorn3 && \
-sudo pip3 install flask openai dotenv
+sudo apt-get update
+sudo apt-get install -y python3
+sudo apt-get install -y python3-pip
+sudo pip3 install flask
+sudo pip3 install openai
+sudo pip3 install dotenv
+sudo apt-get install nginx
+sudo apt-get install gunicorn3
 ```
 
 ## Cloning the Repository
