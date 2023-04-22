@@ -16,7 +16,7 @@ def delete_sessions():
 @app.route('/category')
 def get_category():
     if 'playing' in session:
-        time.sleep(60)
+        #time.sleep(60)
         #Generate a random category
         categories = ["Famous historical figure", "Capital city of a country", "Popular movie title", "Famous landmark", "Type of cuisine", "Sports team", "Popular Sitcom Character", "Musical instrument", "Types of flower", "Poupular Movie character"]
         category = random.choice(categories)

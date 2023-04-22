@@ -35,6 +35,34 @@
             color: #4B0082;
             transition: 0.5s;
         }
+
+        input[type="text"] {
+        background-color: #FFFFFF;
+        color: #4B0082;
+        padding: 15px 20px;
+        border-radius: 10px;
+        font-size: 24px;
+        margin-top: 30px;
+        cursor: pointer;
+        font-family: 'Montserrat', sans-serif;
+        }
+
+        input[type="submit"]{
+            background-color: #4B0082;
+            color: #FFFFFF;
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 24px;
+            margin-top: 30px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #FFFFFF;
+            color: #4B0082;
+            transition: 0.5s;
+        }
     </style>
 </head>
 <body>
@@ -51,9 +79,9 @@
     </p>
     <br>
     <h3>Notice</h3>
-    <p> Just a heads up - we're using a free version of ChatGPT at the moment,<br>
-        which means there might be a short 60-second wait time each time you access the game.<br>
-        Don't worry though, we're working hard to make sure you have the best experience possible!<br><br>
+    <p> We're using a free version of ChatGPT at the moment.<br>
+        Which means you will received an error if you enter the game multiple times within 60-seconds. <br>
+        Wait for a minute each time you enter the game.<br>
         Thanks for your patience and understanding. Break a leg!</p>
     {% endblock %}
 </body>

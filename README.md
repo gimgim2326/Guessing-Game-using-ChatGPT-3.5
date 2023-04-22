@@ -79,12 +79,14 @@ Restart Nginx to apply the new configuration:
 sudo service nginx restart
 ```
 
-## Running the Application
+## Test the Application
 
-Run the following command to start the application using gunicorn3:
+Run the following command to test the application using gunicorn3:
 
 ```
-gunicorn3 app:app
+gunicorn -w 4 --bind 0.0.0.0:8000 wsgi:app
 ```
 
-Your application should now be running and accessible at `http://<server-ip>` or `http://<domain-name>`.
+## Deploy in a service
+
+Your application should now be running and accessible at `http://<server-ip>/8000` or `http://<domain-name>`.
