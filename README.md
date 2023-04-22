@@ -23,7 +23,7 @@ sudo pip3 install flask openai dotenv
 
 ## Cloning the Repository
 
-Clone the a5-group3-game repository using the following command:
+Generate a token (https://github.com/settings/tokens) and clone the a5-group3-game repository using the following command:
 
 ```
 git clone https://oauth-key-goes-here@github.com/gimgim2326/a5-group3-game.git
