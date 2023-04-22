@@ -16,14 +16,9 @@ Before you start, make sure you have the following installed on your system:
 To install the necessary dependencies, run the following commands in your terminal:
 
 ```
-sudo apt-get update
-sudo apt-get install python3
-sudo apt-get install python3-pip
-sudo pip3 install flask
-sudo pip3 install openai
-sudo pip3 install dotenv
-sudo apt-get install nginx
-sudo apt-get install gunicorn3
+sudo apt-get update && \
+sudo apt-get install -y python3 python3-pip nginx gunicorn3 && \
+sudo pip3 install flask openai dotenv
 ```
 
 ## Cloning the Repository
@@ -32,7 +27,6 @@ Clone the a5-group3-game repository using the following command:
 
 ```
 git clone https://github.com/gimgim2326/a5-group3-game.git
-cd a5-group3-game
 ```
 
 ## Configuring the Environment Variables
@@ -40,7 +34,9 @@ cd a5-group3-game
 Create a `.env` file and insert your OpenAI API key:
 
 ```
-sudo nano .env
+cd a5-group3-game && sudo nano .env
+```
+```
 api_key="INSERT_API_KEY_HERE"
 ```
 
@@ -57,7 +53,7 @@ Add the following configuration to the file:
 ```
 server {
     listen 80;
-    server_name <SERVER_NAME>; # Replace with your server's IP address or domain name
+    server_name <server-ip or domain-name>; # Replace with your server's IP address or domain name
     access_log  /var/log/nginx/example.log;
 
     location / {
@@ -86,4 +82,4 @@ Run the following command to start the application using gunicorn3:
 gunicorn3 app:app
 ```
 
-Your application should now be running and accessible at `http://<server-ip>:80`.
+Your application should now be running and accessible at `http://<server-ip>` or `http://<domain-name>`.
