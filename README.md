@@ -16,6 +16,7 @@ Before you start, make sure you have the following installed on your system:
 To install the necessary dependencies, run the following commands in your terminal:
 
 ```
+sudo su
 sudo apt-get update
 sudo apt-get install -y python3
 sudo apt-get install -y python3-pip
