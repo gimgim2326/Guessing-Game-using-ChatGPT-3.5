@@ -1,4 +1,4 @@
-
+'''
 from flask import Blueprint, render_template, request, jsonify, redirect, url_for,session
 import openai
 import random
@@ -96,4 +96,5 @@ def delete_sessions():
 def exit_game():
     delete_sessions()
     return render_template('end.html')
-    
+
+'''

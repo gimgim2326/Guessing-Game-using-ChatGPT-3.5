@@ -1,5 +1,4 @@
 from flask import Flask,Blueprint, render_template, request, jsonify, redirect, url_for,session
-from views import views
 
 app = Flask(__name__)
 app.secret_key = 'SecretKey'
@@ -97,6 +96,7 @@ def delete_sessions():
 def exit_game():
     delete_sessions()
     return render_template('end.html')
+
 if __name__ == '__main__':
     #app.run(debug=True, port=8080)
     app.run(host='0.0.0.0', port=8080)
