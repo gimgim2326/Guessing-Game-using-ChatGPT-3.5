@@ -9,8 +9,6 @@ import random
 import time
 import os
 
-api_key = os.getenv('api_key')
-
 def delete_sessions():
     for key in list(session.keys()):
         del session[key]
@@ -24,7 +22,8 @@ def get_category():
         category = random.choice(categories)
         
         #Generate a word for the category using OpenAI
-        openai.api_key=api_key
+        #openai.api_key=api_key
+        openai.api_key_path = "api_key.txt"
         prompt = f"Suggest a {category}. Only show the word, not the definition. Remove the dot at the end."
         response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": prompt}])
         word = response.choices[0].message.content
@@ -99,5 +98,5 @@ def exit_game():
     delete_sessions()
     return render_template('end.html')
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
-    #app.run(host='0.0.0.0', port=8080)
+    #app.run(debug=True, port=8080)
+    app.run(host='0.0.0.0', port=8080)

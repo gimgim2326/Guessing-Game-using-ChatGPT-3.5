@@ -22,9 +22,8 @@ sudo apt-get install -y python3
 sudo apt-get install -y python3-pip
 sudo pip3 install flask
 sudo pip3 install openai
-sudo pip3 install dotenv
-sudo apt-get install nginx
-sudo apt-get install gunicorn3
+sudo apt-get install -y nginx
+sudo apt-get install -y gunicorn3
 ```
 
 ## Cloning the Repository
@@ -40,7 +39,7 @@ git clone https://oauth-key-goes-here@github.com/gimgim2326/a5-group3-game.git
 Create a `.env` file and insert your OpenAI API key:
 
 ```
-cd a5-group3-game && sudo nano .env
+cd a5-group3-game && sudo nano api_key.txt
 ```
 ```
 api_key="INSERT_API_KEY_HERE"
