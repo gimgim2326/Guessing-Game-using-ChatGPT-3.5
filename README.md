@@ -57,7 +57,7 @@ Add the following configuration to the file:
 ```
 server {
     listen 80;
-    server_name 18.207.88.68; # Replace with your server's IP address or domain name
+    server_name <SERVER_NAME>; # Replace with your server's IP address or domain name
     access_log  /var/log/nginx/example.log;
 
     location / {
