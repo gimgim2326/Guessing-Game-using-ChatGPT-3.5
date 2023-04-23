@@ -86,7 +86,11 @@ After the line DocumentRoot /var/www/html add the following code:
              Allow from all 
         </Directory>
 ```
+Change permissions of /home/ubuntu
 
+```
+sudo chmod /home/ubuntu/
+```
 ## Restarting Apache2
 
 Enable Apache2 at system start up:
