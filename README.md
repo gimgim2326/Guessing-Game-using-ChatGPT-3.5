@@ -8,7 +8,7 @@ Before you start, make sure you have the following installed on your system:
 
 - Python 3
 - pip3
-- nginx
+- Apache
 
 ## Installation
 
