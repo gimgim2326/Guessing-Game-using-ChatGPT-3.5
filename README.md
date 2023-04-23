@@ -24,6 +24,7 @@ sudo pip3 install flask
 sudo pip3 install openai
 sudo apt-get install -y nginx
 sudo apt-get install -y gunicorn3
+sudo apt-get install python3-venv
 ```
 
 ## Cloning the Repository
