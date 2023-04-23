@@ -21,8 +21,8 @@ def get_category():
         category = random.choice(categories)
         
         #Generate a word for the category using OpenAI
-        #openai.api_key=api_key
-        openai.api_key_path = "api_key.txt"
+        #openai.api_key= "INSERT  API KEY" #<---CHANGE THIS TO YOUR API KEY and Remove # at the beginning
+        openai.api_key_path = "api_key.txt" #<---Comment this by adding # at the beginning if you are using the line above
         prompt = f"Suggest a {category}. Only show the word, not the definition. Remove the dot at the end."
         response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": prompt}])
         word = response.choices[0].message.content

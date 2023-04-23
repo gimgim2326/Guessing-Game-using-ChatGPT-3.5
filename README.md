@@ -9,22 +9,20 @@ Before you start, make sure you have the following installed on your system:
 - Python 3
 - pip3
 - nginx
-- gunicorn3
 
 ## Installation
 
 To install the necessary dependencies, run the following commands in your terminal:
 
 ```
-sudo su
 sudo apt-get update
-sudo apt-get install -y python3
-sudo apt-get install -y python3-pip
+sudo apt-get install python3
+sudo apt-get install python3-pip
+sudo apt-get install apache2
+sudo apt-get install libapache2-mod-wsgi-py3
 sudo pip3 install flask
 sudo pip3 install openai
-sudo apt-get install -y nginx
-sudo apt-get install -y gunicorn3
-sudo apt-get install python3-venv
+sudo apt install git 
 ```
 
 ## Cloning the Repository
@@ -35,56 +33,72 @@ Generate a token (https://github.com/settings/tokens) and clone the a5-group3-ga
 git clone https://oauth-key-goes-here@github.com/gimgim2326/a5-group3-game.git
 ```
 
-## Configuring the Environment Variables
-
-Create a `.env` file and insert your OpenAI API key:
+Confirm if you copied it correctly:
 
 ```
-cd a5-group3-game && sudo nano api_key.txt
+ls | grep a5-group3-game
 ```
-```
-api_key="INSERT_API_KEY_HERE"
-```
+Output: a5-group3-game
 
-## Configuring Nginx
+## Configure the API KEY
 
-Create a new Nginx configuration file:
+Insert your OpenAI API key to the code:
 
 ```
-sudo nano /etc/nginx/sites-available/a5-group3-game
+cd a5-group3-game && sudo nano app.py
+```
+```
+        #openai.api_key= "INSERT  API KEY" #<---CHANGE THIS TO YOUR API KEY and Remove # at the beginning
+        openai.api_key_path = "api_key.txt" #<---Comment this by adding # at the beginning if you are using the line above
 ```
 
-Add the following configuration to the file:
+## Configuring Apache2
+
+Make sure you are using root folder:
 
 ```
-server {
-    listen 80;
-    server_name <server-ip or domain-name>; # Replace with your server's IP address or domain name
-    access_log  /var/log/nginx/example.log;
-    location / {
-        proxy_pass http://127.0.0.1:8000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-    }
-}
+cd ~
 ```
 
-Save and exit the file.
-
-## Restarting Nginx
-
-Restart Nginx to apply the new configuration:
+Link the app to Apache root folder:
 
 ```
-sudo service nginx restart
+sudo ln -sT ~/a5-group3-game /var/www/html/flaskapp
+```
+
+Edit configuration file:
+
+```
+sudo nano /etc/apache2/sites-enabled/000-default.conf
+```
+
+After the line DocumentRoot /var/www/html add the following code:
+
+```
+ WSGIDaemonProcess flaskapp threads=5
+        WSGIScriptAlias / /var/www/html/flaskapp/flaskapp.wsgi
+        WSGIApplicationGroup %{GLOBAL}
+        <Directory flaskapp>
+             WSGIProcessGroup flaskapp
+             WSGIApplicationGroup %{GLOBAL}
+             Order deny,allow
+             Allow from all 
+        </Directory>
+```
+
+## Restarting Apache2
+
+Enable Apache2 at system start up:
+
+```
+sudo service apache2 enable
+```
+
+Restart Apache2:
+```
+sudo service apache2 restart
 ```
 
 ## Test the Application
 
-Run the following command to test the application using gunicorn3:
-
-```
-gunicorn -w 4 --bind 0.0.0.0:8000 wsgi:app
-```
-
-Your application should now be running and accessible at `http://<server-ip>/8000` or `http://<domain-name>`.
+Your application should now be running and accessible at `http://<server-ip>` or `http://<domain-name>`.
