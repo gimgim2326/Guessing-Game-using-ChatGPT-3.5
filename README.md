@@ -47,6 +47,7 @@ Insert your OpenAI API key to the code:
 ```
 cd a5-group3-game && sudo nano app.py
 ```
+Edit the following line/s:
 ```
         #openai.api_key= "INSERT  API KEY" #<---CHANGE THIS TO YOUR API KEY and Remove # at the beginning
         openai.api_key_path = "api_key.txt" #<---Comment this by adding # at the beginning if you are using the line above
