@@ -89,7 +89,7 @@ After the line DocumentRoot /var/www/html add the following code:
 Change permissions of /home/ubuntu
 
 ```
-sudo chmod /home/ubuntu/
+sudo chmod 775 /home/ubuntu/
 ```
 ## Restarting Apache2
 
